@@ -1,0 +1,209 @@
+﻿Assignment-3
+
+1.Explain single, multilevel, and hierarchical inheritance.
+	
+	Single Inheritance: In this type, a class inherits from only one base class.
+		 It is the simplest form of inheritance, 
+		creating a direct parent-child relationship.
+
+	Multilevel Inheritance: This involves a chain of inheritance.
+		 A class inherits from a base class,
+		 which in turn inherits from another base class, and so on.
+		 For example, class C inherits from B, and B inherits from A.
+
+	Hierarchical Inheritance: In this structure, multiple classes inherit from a single base class.
+		 This allows several specialized classes
+		 to share common functionalities from one general class.
+
+
+2.What is polymorphism?
+	
+		Polymorphism in Java is one of the core concepts in OOP
+	 	that allows objects to behave differently based on their specific class type.
+		 The word polymorphism means having many forms,
+		 and it comes from the Greek words poly (many) and morph (forms).
+		 This means one entity can take many forms.
+
+
+3.Difference between compile-time and runtime polymorphism.
+	
+	Compile Time Polymorphism: The object’s behavior is decided at compile time,
+		 this is known as the compile-time polymorphism.
+		 At compile-time, java knows which method to call by checking the method signatures.
+		 So this is called compile-time polymorphism.
+		 Method Overloading says you can have more than one function
+		 with the same name in one class having a different prototype. 
+	
+	Run-Time Polymorphism: Whenever an object is bound with the functionality at run time,
+		 this is known as runtime polymorphism. The runtime polymorphism can be achieved by method overriding.
+		 Java virtual machine determines the proper method to call at the runtime.
+		 It means if the child class provides the specific implementation of the method
+		 that has been provided by one of its parent classes then it is known as method overriding.
+
+		
+4.What is method overloading?
+
+	Method overloading means defining multiple methods with the same name but different parameter lists. 
+	The method call is resolved at compile time based on the arguments passed.
+
+5.What is method overriding?
+
+	Method overriding occurs when a subclass provides its own implementation
+ 	of a method already defined in its superclass. 
+	The method must have the same name, parameters, and return type.
+
+
+	*CODE*
+
+1.Write a program to find the sum of digits of a number. 
+
+	import java.util.Scanner;
+
+public class SumOfDigits {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        int sum = 0;
+
+        while (num != 0) {
+            sum = sum + (num % 10);
+            num = num / 10;
+        }
+
+        System.out.println("Sum of digits = " + sum);
+    }
+}
+
+O/P : Enter a number: 12345
+	Sum of digits = 15
+
+
+
+2.Write a program to check if a number is prime.
+
+	import java.util.Scanner;
+
+public class PrimeNo{
+
+	public static void main(String[] args){
+	long n,count=0;
+
+	Scanner sc = new Scanner(System.in);
+	n = sc.nextLong();
+
+	for(int i=1 ; i<=n ; i++){
+	if(n%i==0)
+	count++;
+	}
+
+	if(count==2)
+	System.out.println("It is Prime Num");
+
+	else
+	System.out.println("It is not Prime Num");
+	}
+}
+
+O/P=
+	Enter a N
+	13
+	It is Prime Num
+
+
+
+Code 3 : Write a program to print all prime numbers between 1 and 100.
+
+	public class prime {
+    public static void main(String[] args) {
+
+        int count;
+
+        for (int num = 2; num <= 100; num++) {
+            count = 0;
+
+            for (int i = 1; i <= num; i++) {
+                if (num % i == 0) {
+                    count++;
+                }
+            }
+
+            if (count == 2) {
+                System.out.print(num + " ");
+            }
+        }
+    }
+}
+
+O/P : 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97
+
+
+
+Code 4 :  Write a program to print multiplication table of a number.
+
+	import java.util.Scanner;
+
+	public class Prime1to100{
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(num + " x " + i + " = " + (num * i));
+        }
+
+        sc.close();
+    }
+}
+
+O/P   8 x 1 = 8
+       8 x 2 = 16
+       8 x 3 = 24
+       8 x 4 = 32
+       8 x 5 = 40
+       8 x 6 = 48
+       8 x 7 = 56
+       8 x 8 = 64
+       8 x 9 = 72
+       8 x 10 = 80
+
+
+code 5 : Write a program to count the number of digits in a number.
+
+	import java.util.Scanner;
+
+public class DigitsCount {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+
+        int count = 0;
+
+        if (num == 0) {
+            count = 1;
+        } else {
+            while (num != 0) {
+                num = num / 10;
+                count++;
+            }
+        }
+
+        System.out.println("Number of digits = " + count);
+
+        sc.close();
+    }
+}
+
+O/P : Enter a number: 45678
+      Number of digits = 5
+
+
+
